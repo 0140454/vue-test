@@ -1,7 +1,11 @@
 <template>
   <div>
     <js-child-component />
-    <ts-child-component ref="tsChild" />
+    <ts-child-component
+      ref="tsChild"
+      @click="onClickChildComponent"
+      :style="componentStyle"
+    />
   </div>
 </template>
 
@@ -18,12 +22,16 @@ export default defineComponent({
   },
   setup() {
     const tsChild = ref<InstanceType<typeof TsChildComponent>>();
+    const onClickChildComponent = () => {
+      console.log("onClickChildComponent");
+    };
+    const componentStyle = ref("color: black;");
 
     onMounted(() => {
       tsChild.value!.work();
     });
 
-    return { tsChild };
+    return { tsChild, onClickChildComponent, componentStyle };
   },
 });
 </script>
