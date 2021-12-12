@@ -1,0 +1,8 @@
+node_modules
+dist
+workspace.code-workspace
+.yarn/*
+!.yarn/plugins/
+!.yarn/releases/
+
+/.vscode/
